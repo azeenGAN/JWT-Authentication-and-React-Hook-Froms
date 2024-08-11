@@ -112,7 +112,7 @@ next()
 
 app.post('/form', async (req, res) => {
   const formData=req.body
-  const [usermail, username, ate]= [req.body.email, req.body.Lastname, req.body.date]
+  const [usermail, username, date]= [req.body.email, req.body.Lastname, req.body.date]
   
   formDataCollection.insertOne(formData)
   .then(()=> funcToSendMail(usermail, username, date))
