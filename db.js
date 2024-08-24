@@ -1,8 +1,17 @@
 
-import { MongoClient,Db } from 'mongodb'
+import { MongoClient,ServerApiVersion } from 'mongodb'
+import dotenv from "dotenv"
 
-const url = 'mongodb+srv://usamarajpoot3450:NfYAuqm6wqUb5QsY@authenticationcluster.5vthh.mongodb-stage.net/?retryWrites=true&w=majority&appName=authenticationCluster'
-const client = new MongoClient(url);
+dotenv.config()
+
+const url = process.env.DATABASE_PASSWORD
+const client = new MongoClient(url, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    }
+  });
 
 
 export async function connectToMongoDB(name) {
@@ -15,10 +24,9 @@ export async function connectToMongoDB(name) {
         return db;             
         
     } catch (errors) {
-        console.error('Error connecting to MongoDB', errors.message)
+        console.error('Error connecting to MongoDB', errors)
     }
 }
-
 
 export async function closeConnection() {
     await client.close();
