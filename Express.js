@@ -82,7 +82,7 @@ app.post('/login', async (req, res) => {
     
     let user= await authCollection.findOne({email}) 
          
-    if(!user.email){
+    if(!user){
       return res.status(400).send({message: 'Wrong email provided. '})
       }
     else if(password!==user.password){
