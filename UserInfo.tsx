@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import { newUserData , columns } from "./Table/columns.tsx"
-import { DataTable } from "./Table/data-table.tsx"
+import { newUserData , columns } from "./columns.tsx"
+import { DataTable } from "./data-table.tsx"
 
 
 const UserInfo: React.FC = (): ReactElement => {
