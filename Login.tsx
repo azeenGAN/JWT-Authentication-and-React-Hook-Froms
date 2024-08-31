@@ -67,9 +67,7 @@ const [showPassword, setShowPassword] = useState<boolean>(false)
                 setIsAuthenticated(true)
                 navigate(from);
 
-                console.log("this is console", data.token)
-                console.log("this is ",location.state.from)
-              
+                console.log("this is console", data.token)                           
             }})
             .catch((error) => {
                 setIsAuthenticated(false)
