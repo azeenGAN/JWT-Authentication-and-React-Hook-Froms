@@ -88,7 +88,8 @@ app.post('/login', async (req, res) => {
     else if(password!==user.password){
       return res.status(400).send({message: 'Wrong password provided. '})
       }
-      const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '1h' });
+      const userEmail = user.email
+      const token = jwt.sign({ userEmail }, process.env.SECRET, { expiresIn: '1h' });
       return res.json({ token });
     
     
